@@ -1,0 +1,91 @@
+# ============================================================
+# Angular
+# ============================================================
+node_modules/
+dist/
+.angular/
+.sass-cache/
+*.js.map
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+.env
+.env.local
+.env.*.local
+
+# ============================================================
+# ASP.NET Core
+# ============================================================
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+nuget.config
+
+# Publish output
+**/publish/
+**/PublishProfiles/
+
+# Entity Framework migrations temp files
+*.mdf
+*.ldf
+*.ndf
+
+# Secrets & config overrides
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+**/secrets/
+
+# ============================================================
+# IDEs & editors
+# ============================================================
+
+# Visual Studio / VS Code
+.vscode/
+*.rsuser
+*.vsp
+*.vspx
+*.sap
+*.psess
+*.vsp
+*.opensdf
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+
+# JetBrains (Rider)
+.idea/
+*.iml
+
+# ============================================================
+# OS
+# ============================================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ============================================================
+# Logs & temp
+# ============================================================
+logs/
+*.log
+*.tmp
+*.temp
