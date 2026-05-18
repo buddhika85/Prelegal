@@ -1,0 +1,93 @@
+<form [formGroup]="form" class="nda-form" autocomplete="off">
+  <h2>Mutual NDA Details</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Purpose</mat-label>
+    <textarea matInput rows="2" formControlName="purpose"></textarea>
+    <mat-hint>How confidential information may be used.</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Effective Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="effectiveDate" />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <fieldset>
+    <legend>MNDA Term</legend>
+    <mat-radio-group formControlName="mndaTermKind" class="radio-group">
+      <mat-radio-button value="fixed">Expires after a fixed term</mat-radio-button>
+      <mat-radio-button value="untilTerminated">Continues until terminated</mat-radio-button>
+    </mat-radio-group>
+    @if (form.controls.mndaTermKind.value === 'fixed') {
+      <mat-form-field appearance="outline" class="years-field">
+        <mat-label>Years</mat-label>
+        <input matInput type="number" min="1" formControlName="mndaTermYears" />
+      </mat-form-field>
+    }
+  </fieldset>
+
+  <fieldset>
+    <legend>Term of Confidentiality</legend>
+    <mat-radio-group formControlName="confidentialityKind" class="radio-group">
+      <mat-radio-button value="fixed">Fixed number of years from Effective Date</mat-radio-button>
+      <mat-radio-button value="perpetual">In perpetuity</mat-radio-button>
+    </mat-radio-group>
+    @if (form.controls.confidentialityKind.value === 'fixed') {
+      <mat-form-field appearance="outline" class="years-field">
+        <mat-label>Years</mat-label>
+        <input matInput type="number" min="1" formControlName="confidentialityYears" />
+      </mat-form-field>
+    }
+  </fieldset>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Governing Law (State)</mat-label>
+      <input matInput formControlName="governingLaw" placeholder="e.g. Delaware" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Jurisdiction</mat-label>
+      <input matInput formControlName="jurisdiction" placeholder="e.g. courts located in New Castle, DE" />
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Modifications (optional)</mat-label>
+    <textarea matInput rows="2" formControlName="modifications"></textarea>
+  </mat-form-field>
+
+  @for (party of ['party1', 'party2']; track party; let i = $index) {
+    <fieldset [formGroupName]="party">
+      <legend>Party {{ i + 1 }}</legend>
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Company</mat-label>
+          <input matInput formControlName="company" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Notice Address</mat-label>
+          <input matInput formControlName="address" placeholder="Email or postal address" />
+        </mat-form-field>
+      </div>
+    </fieldset>
+  }
+
+  <div class="actions">
+    <button mat-flat-button type="button" (click)="download()" [disabled]="form.invalid">
+      <mat-icon>download</mat-icon>
+      Download PDF
+    </button>
+  </div>
+</form>

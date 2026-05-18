@@ -1,0 +1,96 @@
+<article class="document" id="nda-document">
+  <header>
+    <h1>Mutual Non-Disclosure Agreement</h1>
+    <p class="intro">
+      This Mutual Non-Disclosure Agreement (the "MNDA") consists of: (1) this Cover Page
+      ("<strong>Cover Page</strong>") and (2) the Common Paper Mutual NDA Standard Terms Version
+      1.0 ("<strong>Standard Terms</strong>") identical to those posted at commonpaper.com/standards/mutual-nda/1.0.
+      Any modifications of the Standard Terms should be made on the Cover Page, which will control
+      over conflicts with the Standard Terms.
+    </p>
+  </header>
+
+  <section>
+    <h3>Purpose</h3>
+    <p class="value">{{ data().purpose || '—' }}</p>
+  </section>
+
+  <section>
+    <h3>Effective Date</h3>
+    <p class="value">{{ data().effectiveDate ? (data().effectiveDate | date: 'longDate') : '—' }}</p>
+  </section>
+
+  <section>
+    <h3>MNDA Term</h3>
+    <p class="value">{{ mndaTermLabel() }}</p>
+  </section>
+
+  <section>
+    <h3>Term of Confidentiality</h3>
+    <p class="value">{{ confidentialityLabel() }}</p>
+  </section>
+
+  <section>
+    <h3>Governing Law &amp; Jurisdiction</h3>
+    <p class="value"><strong>Governing Law:</strong> {{ data().governingLaw || '—' }}</p>
+    <p class="value"><strong>Jurisdiction:</strong> {{ data().jurisdiction || '—' }}</p>
+  </section>
+
+  @if (data().modifications) {
+    <section>
+      <h3>MNDA Modifications</h3>
+      <p class="value">{{ data().modifications }}</p>
+    </section>
+  }
+
+  <section>
+    <p class="signing-intro">
+      By signing this Cover Page, each party agrees to enter into this MNDA as of the Effective Date.
+    </p>
+    <table class="parties">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Party 1</th>
+          <th>Party 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Signature</th>
+          <td class="sign-cell"></td>
+          <td class="sign-cell"></td>
+        </tr>
+        <tr>
+          <th>Print Name</th>
+          <td>{{ data().party1.name || '—' }}</td>
+          <td>{{ data().party2.name || '—' }}</td>
+        </tr>
+        <tr>
+          <th>Title</th>
+          <td>{{ data().party1.title || '—' }}</td>
+          <td>{{ data().party2.title || '—' }}</td>
+        </tr>
+        <tr>
+          <th>Company</th>
+          <td>{{ data().party1.company || '—' }}</td>
+          <td>{{ data().party2.company || '—' }}</td>
+        </tr>
+        <tr>
+          <th>Notice Address</th>
+          <td>{{ data().party1.address || '—' }}</td>
+          <td>{{ data().party2.address || '—' }}</td>
+        </tr>
+        <tr>
+          <th>Date</th>
+          <td>{{ data().effectiveDate ? (data().effectiveDate | date: 'longDate') : '—' }}</td>
+          <td>{{ data().effectiveDate ? (data().effectiveDate | date: 'longDate') : '—' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr />
+
+  <div class="standard-terms" [innerHTML]="standardTermsHtml()"></div>
+</article>
