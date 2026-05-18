@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild, ElementRef } from '@angular/core';
-import html2pdf from 'html2pdf.js';
 
 import { NdaFormComponent } from './components/nda-form/nda-form';
 import { NdaPreviewComponent } from './components/nda-preview/nda-preview';
@@ -21,11 +20,12 @@ export class App {
     this.data.set(value);
   }
 
-  onDownload(): void {
+  async onDownload(): Promise<void> {
     const host = this.previewHost()?.nativeElement;
     const target = host?.querySelector('#nda-document') as HTMLElement | null;
     if (!target) return;
 
+    const { default: html2pdf } = await import('html2pdf.js');
     html2pdf()
       .set({
         margin: [12, 12],
