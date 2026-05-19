@@ -1,0 +1,17 @@
+<header class="topbar">
+  <h1>Prelegal</h1>
+  <span class="subtitle">Mutual NDA Creator</span>
+</header>
+
+<main class="layout">
+  <section class="pane form-pane">
+    <app-nda-form
+      (valueChange)="onValueChange($event)"
+      (downloadRequested)="onDownload()"
+    />
+  </section>
+
+  <section class="pane preview-pane" #previewHost>
+    <app-nda-preview [data]="data()" />
+  </section>
+</main>

@@ -1,0 +1,80 @@
+:host {
+  display: block;
+}
+
+.document {
+  background: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: #1f1f1f;
+
+  h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 0 0 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin: 1.2rem 0 0.25rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.15rem;
+  }
+
+  .intro {
+    font-style: italic;
+    color: #444;
+  }
+
+  .value {
+    margin: 0.25rem 0;
+  }
+
+  .signing-intro {
+    margin-top: 1.5rem;
+  }
+
+  table.parties {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+
+    th, td {
+      border: 1px solid #999;
+      padding: 0.4rem 0.6rem;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    thead th {
+      background: #f0f0f0;
+      text-align: center;
+    }
+
+    tbody th {
+      width: 9rem;
+      background: #fafafa;
+      font-weight: 500;
+    }
+
+    .sign-cell {
+      height: 2.5rem;
+    }
+  }
+
+  hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+
+  .standard-terms {
+    :global(p), p {
+      margin: 0.6rem 0;
+    }
+  }
+}
